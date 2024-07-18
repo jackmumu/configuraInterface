@@ -1,7 +1,9 @@
 import { getButton } from "../../api/button";
 // initial state
 const state = () => ({
-  buttons: [],
+  buttons: {
+    buttons: [],
+  },
 });
 
 // getters
