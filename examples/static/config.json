@@ -1,0 +1,295 @@
+{
+    "buttons": [
+        {
+            "id": "menu-start",
+            "layout": "header-center",
+            "text": "开始",
+            "hideTitle": true,
+            "children": [
+                {
+                    "id": "paging_first",
+                    "text": "首页",
+                    "title": "首页",
+                    "icon": "sw-paging-first",
+                    "code": "jump",
+                    "value": "|<",
+                    "hideText": true
+                },
+                {
+                    "id": "paging_prev",
+                    "title": "上一页",
+                    "text": "上一页",
+                    "icon": "sw-paging-prev",
+                    "code": "jump",
+                    "value": "<",
+                    "hideText": true
+                },
+                {
+                    "id": "paging_input",
+                    "title": "页码跳转",
+                    "text": "页码跳转",
+                    "code": "jump"
+                },
+                {
+                    "id": "paging_next",
+                    "text": "下一页",
+                    "title": "下一页",
+                    "icon": "sw-paging-next",
+                    "code": "jump",
+                    "value": ">",
+                    "hideText": true
+                },
+                {
+                    "id": "paging_last",
+                    "title": "末页",
+                    "text": "末页",
+                    "icon": "sw-paging-last",
+                    "code": "jump",
+                    "value": ">|",
+                    "hideText": true
+                },
+                {
+                    "id": "start-paging-divide",
+                    "code": "jump"
+                },
+                {
+                    "id": "zoomIn",
+                    "hallmark": "zoom",
+                    "code": "zoom",
+                    "value": "-",
+                    "icon": "sw-zoom-in",
+                    "text": "缩小",
+                    "hideText": true
+                },
+                {
+                    "id": "zoomAll",
+                    "hallmark": "zoomAll",
+                    "type": "components",
+                    "code": "zoom",
+                    "value": "1",
+                    "text": "100%",
+                    "children": [
+                        {
+                            "id": "zoom_fits_width",
+                            "code": "zoom",
+                            "text": "适合宽度",
+                            "value": "<>"
+                        },
+                        {
+                            "id": "zoom_fits_height",
+                            "code": "zoom",
+                            "text": "适合高度",
+                            "value": "|"
+                        },
+                        {
+                            "id": "divide-zoom-fit",
+                            "code": "zoom"
+                        },
+                        {
+                            "id": "zoom0",
+                            "code": "zoom",
+                            "text": "25%",
+                            "value": "0.25",
+                            "hide": true,
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom3",
+                            "code": "zoom",
+                            "text": "50%",
+                            "value": "0.5",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom4",
+                            "code": "zoom",
+                            "text": "75%",
+                            "value": "0.75",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom_normal",
+                            "code": "zoom",
+                            "text": "100%",
+                            "value": "1",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom6",
+                            "code": "zoom",
+                            "text": "125%",
+                            "value": "1.25",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom7",
+                            "code": "zoom",
+                            "text": "150%",
+                            "value": "1.5",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom8",
+                            "code": "zoom",
+                            "text": "175%",
+                            "value": "1.75",
+                            "tifView": true
+                        },
+                        {
+                            "id": "zoom9",
+                            "code": "zoom",
+                            "text": "200%",
+                            "value": "2",
+                            "tifView": true
+                        },
+                        {
+                            "id": "divide-zoom-single",
+                            "code": "zoom"
+                        },
+                        {
+                            "id": "tip-zoom",
+                            "text": "以下仅适用于单页模式",
+                            "disabled": true,
+                            "code": "zoom"
+                        },
+                        {
+                            "id": "zoom10",
+                            "code": "zoom",
+                            "text": "400%",
+                            "value": "4"
+                        },
+                        {
+                            "id": "zoom11",
+                            "code": "zoom",
+                            "text": "600%",
+                            "value": "6"
+                        },
+                        {
+                            "id": "zoom12",
+                            "code": "zoom",
+                            "text": "800%",
+                            "value": "8"
+                        },
+                        {
+                            "id": "zoom13",
+                            "code": "zoom",
+                            "text": "1600%",
+                            "value": "16",
+                            "hide": true
+                        },
+                        {
+                            "id": "zoom14",
+                            "code": "zoom",
+                            "text": "3200%",
+                            "value": "32",
+                            "hide": true
+                        },
+                        {
+                            "id": "zoom15",
+                            "code": "zoom",
+                            "text": "6400%",
+                            "value": "64",
+                            "hide": true
+                        }
+                    ]
+                },
+                {
+                    "id": "zoomOut",
+                    "hallmark": "zoom",
+                    "code": "zoom",
+                    "value": "+",
+                    "icon": "sw-zoom-out",
+                    "text": "放大",
+                    "hideText": true
+                },
+                {
+                    "id": "zoom_fits_height",
+                    "code": "zoom",
+                    "text": "适高",
+                    "title": "适合高度",
+                    "value": "|",
+                    "icon": "sw-zoom-fits-height"
+                },
+                {
+                    "id": "zoom_fits_width",
+                    "code": "zoom",
+                    "text": "适宽",
+                    "title": "适合宽度",
+                    "value": "<>",
+                    "icon": "sw-zoom-fits-width"
+                },
+                {
+                    "id": "start-zoom-divide",
+                    "code": "zoom"
+                },
+                {
+                    "id": "search",
+                    "text": "查找",
+                    "icon": "sw-search",
+                    "hide": true
+                },
+                {
+                    "id": "begin-continuity-page",
+                    "text": "连页",
+                    "icon": "sw-begin-continuity-page",
+                    "code": "layout",
+                    "value": "=",
+                    "hide": false
+                },
+                {
+                    "id": "begin-single-page",
+                    "text": "单页",
+                    "icon": "sw-begin-single-page",
+                    "code": "layout",
+                    "value": "-"
+                },
+                {
+                    "id": "begin-double-continuity-pag",
+                    "text": "双页连续",
+                    "icon": "sw-begin-double-page",
+                    "code": "layout",
+                    "value": "=="
+                },
+                {
+                    "id": "double-page-divide",
+                    "code": "layout"
+                },
+                {
+                    "id": "rotate_add",
+                    "text": "旋转",
+                    "icon": "sw-begin-rotate",
+                    "code": "rotate",
+                    "value": "++"
+                },
+                {
+                    "id": "allsigns",
+                    "text": "验章",
+                    "icon": "sw-seal-sign"
+                },
+                {
+                    "id": "searchSecDoc",
+                    "text": "查密",
+                    "icon": "sw-search",
+                    "hide": true
+                },
+                {
+                    "id": "securityDocuments",
+                    "text": "安全文档",
+                    "icon": "sw-security-document-identification",
+                    "hide": true
+                },
+                {
+                    "id": "rotate-divide",
+                    "hide": true
+                },
+                {
+                    "id": "begin-eyehelp",
+                    "text": "护眼模式",
+                    "icon": "sw-begin-eyehelp",
+                    "value": "#F3F8F0",
+                    "hide": true
+                }
+            ]
+        }
+    ]
+}
