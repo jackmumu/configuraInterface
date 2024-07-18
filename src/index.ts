@@ -5,13 +5,15 @@ export class configuraInterface {
   static allBtn: any;
   constructor(options: options) {
     const { data, perm, fileType } = options;
-    this.traverseDeepButton(data, perm, fileType);
-    configuraInterface.data = this.removeHide(configuraInterface.data);
+    configuraInterface.traverseDeepButton(data, perm, fileType);
+    configuraInterface.data = configuraInterface.removeHide(
+      configuraInterface.data
+    );
   }
-  get getButtons() {
+  static get getButtons() {
     return configuraInterface.data;
   }
-  traverseDeepButton = (
+  static traverseDeepButton = (
     data: Array<Button>,
     perm: Array<string>,
     fileType: string
@@ -32,7 +34,7 @@ export class configuraInterface {
     // 目的是为了得到一个备份，隐藏按钮后，store中buttons已经没有这个按钮，从备份allBtn中得到按钮显示出来
     configuraInterface.allBtn = JSON.parse(JSON.stringify(data));
   };
-  removeHide = (buttons: Array<Button>): Array<Button> => {
+  static removeHide = (buttons: Array<Button>): Array<Button> => {
     return buttons.filter((btn: Button) => {
       if (!btn) return;
       if (btn.children) {
@@ -47,16 +49,17 @@ export class configuraInterface {
    * 修改按钮的状态
    * @param btn
    */
-  emitModifyButton = (btn: Button) => {
+  static emitModifyButton = (btn: Button) => {
     const id = btn.id;
     this.traverseDeep(id, configuraInterface.allBtn, btn);
+    this.setStoreButtons();
   };
-  setStoreButtons = () => {
+  static setStoreButtons = () => {
     // 不要直接操作allBtn,隐藏的元素会被删除
     const _allBtn = JSON.parse(JSON.stringify(configuraInterface.allBtn));
     configuraInterface.data = this.removeHide(_allBtn);
   };
-  traverseDeep = (id: string, data: Array<Button>, attr: Button) => {
+  static traverseDeep = (id: string, data: Array<Button>, attr: Button) => {
     data.forEach((item: Button) => {
       if (!item) return;
       if (item.id === id) {
@@ -70,4 +73,20 @@ export class configuraInterface {
       }
     });
   };
+  static hide(id: string) {
+    configuraInterface.emitModifyButton({ id: id, hide: true });
+    return configuraInterface.getButtons;
+  }
+  static show(id: string) {
+    configuraInterface.emitModifyButton({ id: id, hide: false });
+    return configuraInterface.getButtons;
+  }
+  static disabled(id: string) {
+    configuraInterface.emitModifyButton({ id: id, disabled: true });
+    return configuraInterface.getButtons;
+  }
+  static undisabled(id: string) {
+    configuraInterface.emitModifyButton({ id: id, disabled: false });
+    return configuraInterface.getButtons;
+  }
 }

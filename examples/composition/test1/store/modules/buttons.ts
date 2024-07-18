@@ -1,21 +1,22 @@
 import { getButton } from "../../api/button";
-import { configuraInterface } from "configuraInterface";
+// import { configuraInterface } from "configuraInterface";
+import { configuraInterface } from "../../../../../src/index";
 // initial state
 const state = () => ({
-  buttons: {
-    buttons: [],
-  },
+  buttons: [],
 });
 
 // getters
-const getters = {};
+const getters = {
+  buttons: (state: any) => state.buttons,
+};
 
 // actions
 const actions = {
   getButtons: async ({ commit }: { commit: any }) => {
     const res = await getButton();
-    const c = new configuraInterface({ data: res.data.buttons } as any);
-    commit("buttons", c.getButtons);
+    new configuraInterface({ data: res.data.buttons } as any);
+    commit("buttons", configuraInterface.getButtons);
   },
 };
 

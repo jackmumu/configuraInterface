@@ -5,4 +5,4 @@ const c = new configuraInterface({
   fileType: "ofd",
 });
 console.log(c);
-expect(c.getButtons).toBe([{ id: "e", text: "33" }]);
+expect(configuraInterface.getButtons).toBe([{ id: "e", text: "33" }]);

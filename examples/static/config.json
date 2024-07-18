@@ -13,7 +13,8 @@
                     "icon": "sw-paging-first",
                     "code": "jump",
                     "value": "|<",
-                    "hideText": true
+                    "hideText": true,
+                    "hide": true
                 },
                 {
                     "id": "paging_prev",

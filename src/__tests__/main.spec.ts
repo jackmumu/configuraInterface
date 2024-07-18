@@ -15,6 +15,6 @@ describe("configuraInterface", () => {
       fileType: "ofd",
     });
     console.log(c);
-    expect(c.getButtons).toEqual([{ id: "e", name: "e", text: "33" }]);
+    expect(configuraInterface.getButtons).toEqual([{ id: "e", name: "e", text: "33" }]);
   });
 });

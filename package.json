@@ -1,6 +1,6 @@
 {
   "name": "configurainterface",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "typings": "types/src/index.d.ts",
   "dependencies": {
     "axios": "^1.7.2",
-    "configurainterface": "^1.0.6",
+    "configurainterface": "^1.0.7",
     "element-plus": "^2.7.7",
     "vuex": "^4.1.0"
   },
