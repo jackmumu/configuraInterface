@@ -1,4 +1,5 @@
 import { getButton } from "../../api/button";
+import { configuraInterface } from "configuraInterface";
 // initial state
 const state = () => ({
   buttons: {
@@ -13,7 +14,8 @@ const getters = {};
 const actions = {
   getButtons: async ({ commit }: { commit: any }) => {
     const res = await getButton();
-    commit("buttons", res.data);
+    const c = new configuraInterface({ data: res.data.buttons } as any);
+    commit("buttons", c.getButtons);
   },
 };
 

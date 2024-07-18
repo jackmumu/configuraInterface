@@ -1,15 +1,15 @@
 import type { options, Button } from "./types";
 import { isSubset } from "./util";
 export class configuraInterface {
-  data: any;
-  allBtn: any;
+  static data: any;
+  static allBtn: any;
   constructor(options: options) {
     const { data, perm, fileType } = options;
-    this.allBtn = this.data = this.traverseDeepButton(data, perm, fileType);
-    this.data = this.removeHide(this.data);
+    this.traverseDeepButton(data, perm, fileType);
+    configuraInterface.data = this.removeHide(configuraInterface.data);
   }
   get getButtons() {
-    return this.data;
+    return configuraInterface.data;
   }
   traverseDeepButton = (
     data: Array<Button>,
@@ -28,8 +28,9 @@ export class configuraInterface {
       }
       !item.name && (item.name = item.id);
     });
+    configuraInterface.data = data;
     // 目的是为了得到一个备份，隐藏按钮后，store中buttons已经没有这个按钮，从备份allBtn中得到按钮显示出来
-    this.allBtn = JSON.parse(JSON.stringify(data));
+    configuraInterface.allBtn = JSON.parse(JSON.stringify(data));
   };
   removeHide = (buttons: Array<Button>): Array<Button> => {
     return buttons.filter((btn: Button) => {
@@ -48,12 +49,12 @@ export class configuraInterface {
    */
   emitModifyButton = (btn: Button) => {
     const id = btn.id;
-    this.traverseDeep(id, this.allBtn, btn);
+    this.traverseDeep(id, configuraInterface.allBtn, btn);
   };
   setStoreButtons = () => {
     // 不要直接操作allBtn,隐藏的元素会被删除
-    const _allBtn = JSON.parse(JSON.stringify(this.allBtn));
-    this.data = this.removeHide(_allBtn);
+    const _allBtn = JSON.parse(JSON.stringify(configuraInterface.allBtn));
+    configuraInterface.data = this.removeHide(_allBtn);
   };
   traverseDeep = (id: string, data: Array<Button>, attr: Button) => {
     data.forEach((item: Button) => {
