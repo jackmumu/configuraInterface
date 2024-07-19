@@ -1,11 +1,11 @@
 declare const _default: {
     namespaced: boolean;
     state: () => {
-        buttons: {
-            buttons: never[];
-        };
+        buttons: never[];
     };
-    getters: {};
+    getters: {
+        buttons: (state: any) => any;
+    };
     actions: {
         getButtons: ({ commit }: {
             commit: any;
