@@ -6,25 +6,41 @@
       </div>
       <div class="header_two">
         <div v-for="item in menustart?.children">
-          <el-button v-if="item.text" :id="item.id" :disabled="item.disabled">{{ item.text }}</el-button>
+          <el-button v-if="item.text" :id="item.id" :disabled="item.disabled" @click="copy(item.id)">{{ item.text }}</el-button>
         </div>
       </div>
     </div>
     <div class="footer">
       <input v-model="id"></input>
-      <el-button @click="hide">隐藏</el-button>
-      <el-button @click="show">显示</el-button>
-      <el-button @click="disabled">禁用</el-button>
-      <el-button @click="undisabled">启用</el-button>
+      <el-button v-for="item in statusButtons" @click="status(item.id)">{{item.text}}</el-button>
     </div>
   </div>
 </template>
 <script>
 import { computed, ref} from "vue";
 import { useStore } from "vuex";
+import { ElMessage } from "element-plus";
 import { configuraInterface } from "../../../../src/index";
 export default {
   setup() {
+    const statusButtons = [
+      {
+        id: 'hide',
+        text: '隐藏',
+      },
+      {
+        id: 'show',
+        text: '显示',
+      },
+      {
+        id: 'disabled',
+        text: '禁用',
+      },
+      {
+        id: 'undisabled',
+        text: '启用',
+      },
+    ];
     const store = useStore();
     store.dispatch("buttons/getButtons");
     const buttons = computed(() => store.getters.buttons.buttons);
@@ -33,30 +49,21 @@ export default {
       return buttons.find((button) => button.id === "menu-start");
     });
     const id = ref('')
-    const hide = () => {
-      const buttons = configuraInterface.hide(id.value)
+    const copy = (id) => {
+      navigator.clipboard.writeText(id)
+      ElMessage.success(`复制成功 ${id}`)
+    }
+    const status = (operation)=> {
+      const buttons = configuraInterface[operation](id.value)
       store.commit('buttons/buttons', buttons)
-    };
-    const show = () => {
-      const buttons = configuraInterface.show(id.value)
-      store.commit('buttons/buttons', buttons)
-    };
-    const disabled = () => {
-      const buttons = configuraInterface.disabled(id.value)
-      store.commit('buttons/buttons', buttons)
-    };
-    const undisabled = () => {
-      const buttons = configuraInterface.undisabled(id.value)
-      store.commit('buttons/buttons', buttons)
-    };
+    }
     return {
       buttons,
       menustart,
       id,
-      hide,
-      show,
-      disabled,
-      undisabled,
+      status,
+      copy,
+      statusButtons
     };
   },
 };
